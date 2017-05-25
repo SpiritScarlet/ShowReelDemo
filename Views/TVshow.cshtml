@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ShowReel.Models.Tvshow>
+
+
+@{
+    ViewBag.Title = "TVshow";
+}
+
+
+<h2>TVshow</h2>
+<div class="row">
+    <form method="get" action="@Url.Action("TVshow", "TVShows")">
+
+            <!-- <input type="radio" name="type" value="genre" /> Genre --> 
+            <input type="radio" name="type" value="premiereYear"> Year of Premiere
+            <input type="radio" name="type" value="popularity"> Popularity
+            <input type="radio" name="type" value="all"> All
+      
+        
+
+                        <div class="input-group-btn">
+                       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+                       <ul class="dropdown-menu">
+                           <li name="action" id="action"><a href="#">Action</a></li>
+                           <li name="action" id="drama"><a href="#">Drama</a></li>
+                           <li name="action" id="fantasy"><a href="#">Fantasy</a></li>
+                           <li name="action" id="sci-fi"><a href="#">Sci-fi</a></li>
+                           <li name="action" id="mistery"><a href="#">Mistery</a></li>
+
+                       </ul>
+                   </div><!-- /btn-group -->
+            <input type="search" name="keyword" id="search" />
+            <button type="submit" value="Search"><span class="glyphicon glyphicon-search"></span></button>
+
+</form>
+</div>
+
+
+
+        @foreach (var item in Model)
+        {
+            <hr />
+
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../Content/Images/@item.Image" style="height:200px; width:300px;" />
+                </div>
+                <div class="col-md-8">
+            
+                    <h2> @item.Name <span style="font-size:medium;">@item.Year</span></h2>
+                    @{ 
+                        var k = (int)Math.Round(@item.Rating);
+                        for (int i = 0; i < k; i++)
+                        {
+                    <span class="glyphicon glyphicon-star"></span>
+                        }
+                        for (int i = k; i < 10; i++)
+                        {
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                            }
+                        }
+
+                    <p>  @item.Description</p>
+
+
+                    
+                    <button class="btn btn-danger btn-lg news @item.Id">Track</button>
+                
+                <script>
+                    $(".@item.Id").click(function () {
+                        $(this).text(function (i, text) {
+                            return text === "Track" ? "Untrack" : "Track";
+                        })
+                    });
+                </script>
+
+                </div>
+
+            </div>
+        }

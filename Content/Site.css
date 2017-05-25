@@ -1,0 +1,220 @@
+﻿body {
+    background-image:url("Images/background.jpg");
+    padding-bottom: 20px;
+    background-repeat:none;
+    background-attachment:fixed;
+}
+
+
+div .body-content{
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    background-color: rgba(255,255,255,0.95);
+    width: 80%;
+    position: relative;
+    margin-left: 10%;
+}
+
+.fa {
+
+    color:darkred;
+}
+
+.table-striped {
+background-color:#f79494;
+}
+
+table td{
+    height:40px;
+    vertical-align:middle;
+}
+
+table tr{
+    padding:10%;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+.news {
+
+    float:right;
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.container-header{
+
+    padding:0px;
+}
+
+
+.banner{
+    position: relative;
+    margin-left:35%;
+}
+
+.menu{
+    position: relative;
+    margin-left: 25%;
+}
+
+.navbar-default .navbar-nav > li > a{
+
+    color:white;
+}
+
+.menu-item {
+
+    color:white;
+    font-weight:bold;
+}
+
+
+
+.navbar-default{
+    background-color: darkred;
+    border-color: white;
+    color:white;
+    font-weight:bold;
+}
+.button{
+    margin: 0 auto;
+    width:100%;
+}
+
+#submit{
+    position:relative;
+    float:right;
+}
+
+input, textarea{
+    max-width:500px;
+}
+
+.button > a{
+    color:white;
+    font-weight:bold;
+}
+
+.button > a:hover{
+    text-decoration:none;
+    color:white;
+}
+
+
+
+ .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .active > a{
+    color:darkred;
+    font-weight: bold;
+    background-color:white;
+    border-radius: 0px;
+}
+
+body{
+    background-color: white;
+}
+
+.container-header{
+    background-color: white;
+}
+table{
+    table-layout: fixed;
+}
+
+
+footer{
+    text-align: center;
+    color:gray;
+}
+
+footer>hr{
+    border: 1px solid darkgray;
+}
+
+.glyphicon-star{
+    color: gold;
+    font-size:larger;   
+}
+
+.header>th{
+    background-color: darkred;
+    color:white;
+    font-weight: bold;
+}
+
+.trackbtn{
+    position: relative;
+    float: right;
+    margin: 5px;
+}
+
+hr{
+    position:relative;
+    border: 1px solid gray;
+    margin-bottom: 10px;
+}
+
+.sample{
+    position: relative;
+    margin-bottom:5px;
+}
+
+.numbers{
+    position: relative;
+    margin-left: 35%;
+}
+
+.searchbtn{
+    position: relative;
+    margin-bottom: 10px;
+    margin-left: -3%;
+}
+
+.contactForm{
+    position: relative;
+    margin-top: 25px;
+}
+
+.rate{
+    position: relative;
+    float:right;
+}
+
+.btn-danger{
+    background-color: darkred;
+}
+
+.profil{
+    position: relative;
+    margin-top: 15px;
+    color: darkred;
+    font-weight: bold;
+}
+
+#carousel-example-generic {
+
+    height: 400px;
+    background-color:black;
+
+}
+
+.item {
+    position:relative;
+    height:400px;
+}
+
+.img-responsive {
+
+    margin: 0 auto;
+}

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ShowReel.Models.News>
+
+@{
+    ViewBag.Title = "News";
+}
+
+<h1>News</h1>
+<hr />
+
+<form method="get">
+    <input type="radio" name="news" value="newest"> Newest First
+    <input type="radio" name="news" value="keyword"> Keyword Search
+
+    <input type="search" name="text" id="search" />
+    <button type="submit" value="Search"><span class="glyphicon glyphicon-search"></span></button>
+</form>
+
+
+
+@foreach (var item in Model) {
+    <hr />    
+    <div class="row">
+        <div class="col-md-4">
+            <img src="../Content/Images/@item.Image" style="height:200px; width:300px;"/>
+        </div>
+        <div class="col-md-8">
+            <h2> @Html.DisplayFor(modelItem => item.Name)</h2>
+            <p>  @Html.DisplayFor(modelItem => item.Description)</p>
+            <a class="btn btn-danger news" href="@Html.DisplayFor(modalItem => item.Link)" >Read more</a>
+        </div>
+        
+    </div>
+}
+

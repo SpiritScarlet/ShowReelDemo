@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ShowReel.Models.Tvshow>
+
+@{
+    ViewBag.Title = "Tracker";
+    ViewBag.Episode = 1;
+}
+
+<h2>Tracker</h2>
+
+<table class="table table-striped text-center">
+
+    <tr style="font-weight:bold; font-size:larger;">
+            <td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thursday</td><td>Friday</td><td>Saturday</td><td>Sunday</td>
+    </tr>
+    <tr>
+        <td>
+            WestWorld
+        </td>
+        <td>
+            Supergirl
+        </td>
+        <td></td>
+        <td>Vikings</td>
+        <td>Stranger Things</td><td></td>
+        <td>The Walking Dead</td>
+    </tr>
+    <tr>
+        <td>
+            Game of Thrones
+        </td>
+        <td></td><td></td> <td>Glee</td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td>
+            Sherlock
+        </td>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>  
+       
+      
+</table>
+
+<hr />
+
+<h2>You are tracking: </h2>
+
+
+@foreach (var item in Model)
+{
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <img src="../Content/Images/@item.Image" style="height:200px; width:300px;" />
+        </div>
+        <div class="col-md-8">
+            <h2> @item.Name</h2>
+            <p>  @item.Description</p>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-6">
+                    <h3 style="float:right;">Season 1, Episode <span class="@item.Id">@item.Id</span></h3>
+                </div>
+                <br />
+                <button class="btn btn-danger btn-lg news" id="@item.Id">Mark Watched</button>
+                @{ 
+                <script type="text/javascript">
+    
+                    $("#@item.Id").click(function () {
+                        $('.@item.Id').html(parseInt($('.@item.Id').html(), 10) + 1)
+                    });
+                
+                </script>
+                }
+            </div>
+        </div>
+    </div>
+        
+}
