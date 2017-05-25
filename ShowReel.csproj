@@ -285,14 +285,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Tracker\Tracker.cshtml" />
     <Content Include="Views\News\News.cshtml" />
-    <Content Include="Views\TVshow.cshtml" />
+    <Content Include="Views\TVShows\TVshow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\" />
     <Folder Include="Filters\" />
     <Folder Include="Views\Contact\" />
     <Folder Include="Views\DropDownList\" />
-    <Folder Include="Views\TVShows\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
