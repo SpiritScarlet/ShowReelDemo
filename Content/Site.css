@@ -1,23 +1,498 @@
-﻿body {
-    background-image:url("Images/background.jpg");
-    padding-bottom: 20px;
-    background-repeat:none;
-    background-attachment:fixed;
+﻿/*RESET CSS BEGIN*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+/* FONTS */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
 }
 
 
-div .body-content{
+ol,
+ul {
+    list-style: none;
 }
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    background-color: rgba(255,255,255,0.95);
-    width: 80%;
+
+blockquote,
+q {
+    quotes: none;
+}
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*RESET CSS END*/
+
+
+/*HELPER CLASS BEGIN*/
+
+* {
     position: relative;
-    margin-left: 10%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
 }
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+strong,
+b {
+    font-weight: 700;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+p,
+ul li,
+ol li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 25px;
+    margin: 0 0 20px 0;
+    color: #3d3d3d;
+}
+
+ul li,
+ol li {
+    margin-bottom: 10px;
+}
+
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserat', sans-serif;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 65px;
+    padding: 20px 0 40px 0;
+}
+
+h2 {
+    font-size: 45px;
+    line-height: 48px;
+    margin-bottom: 35px;
+}
+
+h3 {
+    font-size: 37px;
+    line-height: 41px;
+}
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:focus, a:visited, a:hover{
+    outline: none;
+    box-shadow: none;
+}
+
+input[type="submit"] {
+    -webkit-appearance: none;
+}
+
+/*--------------helper class-------------------*/
+
+.align--right {
+    float: right;
+}
+
+.align--left {
+    float: left;
+}
+
+.txt--white {
+    color: white;
+}
+
+.w--light {
+    font-weight: 300;
+}
+
+.w--medium {
+    font-weight: 500;
+}
+
+.w--semibold{
+    font-weight: 600;
+}
+
+.w--black {
+    font-weight: 900;
+}
+
+.letter-spacing--1 {
+    letter-spacing: 1px;
+}
+
+.txt--center {
+    text-align: center;
+}
+
+.txt--right {
+    text-align: right;
+}
+
+.text--darkred {
+    color: darkred;
+}
+
+.bg--darkred {
+    background-color: darkred;
+}
+
+.bg--white {
+    background-color: #ffffff;
+}
+
+.txt--uppercase {
+    text-transform: uppercase;
+}
+
+.txt--capitalize {
+    text-transform: capitalize;
+}
+
+.txt--underline {
+    text-decoration: underline;
+}
+
+.d--flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: wrap row;
+    flex-flow: wrap row;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/*btn style*/
+
+.btn {
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.btn--red, .btn--red:focus, .btn--red:visited {
+    background-color: darkred;
+    color: #fff;
+    border: 2px solid darkred;
+}
+
+.btn--red:hover{
+    background-color: #fff;
+    color: darkred;
+}
+
+.btn-home {
+    max-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn-show{
+    max-width:350px;
+    width:100%;
+    margin-left: auto;
+}
+
+/*navigation style*/
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: darkred;
+}
+
+.logo-container{
+    max-width: 120px;
+    width: 100%;
+}
+
+.logo__img{
+    display: block;
+    width:100%;
+}
+
+.menu__list{
+    list-style: none;
+}
+
+.menu__list__item{
+    display: inline-block;
+    padding: 20px;
+    margin-bottom: 0;
+}
+
+.menu__list__item a{
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu__list__item a:hover{
+    text-decoration: none;
+}
+
+
+.container--bg {
+    background: url("Images/background.jpg") center no-repeat;
+    z-index: 0;
+    background-attachment: fixed;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/*global style of body content*/
+.body-content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 130px 20px 20px 20px;
+    z-index: 10;
+    background-color: rgba(255,255,255,0.95);
+}
+
+
+/*footer style*/
+footer {
+    background-color: #000;
+    padding: 20px 0;
+}
+
+footer p {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+
+/*home page style*/
+
+.row.flex {
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+}
+
+.box{
+    max-width: 430px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.box-content{
+    text-align: center;
+    padding: 0 50px;
+}
+
+.img-container{
+    text-align: center;
+}
+
+.home-img{
+    max-width: 400px;
+    width: 100%;
+}
+
+.line-under:after{
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: darkred;
+    margin: 10px auto 40px auto;
+}
+
+.line-under--gray:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #d2d2d2;
+    margin: 10px auto 40px auto;
+}
+
+.line-under--gray.normal:after{
+    margin: 40px auto;
+}
+
+
+/*carousel style*/
+
+.carousel{
+    margin: -40px -20px -20px -20px;
+    background-color: #000;
+}
+
+/*listed shows from database*/
+
+.listed-item__img {
+    border-radius: 5px;
+    min-height: 270px;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.25);
+}
+
 
 .fa {
-
     color:darkred;
 }
 
@@ -42,7 +517,6 @@ table tr{
 }
 
 .news {
-
     float:right;
 }
 /* Set width on the form input elements since they're 100% wide by default */
@@ -54,40 +528,9 @@ textarea {
 
 
 .container-header{
-
     padding:0px;
 }
 
-
-.banner{
-    position: relative;
-    margin-left:35%;
-}
-
-.menu{
-    position: relative;
-    margin-left: 25%;
-}
-
-.navbar-default .navbar-nav > li > a{
-
-    color:white;
-}
-
-.menu-item {
-
-    color:white;
-    font-weight:bold;
-}
-
-
-
-.navbar-default{
-    background-color: darkred;
-    border-color: white;
-    color:white;
-    font-weight:bold;
-}
 .button{
     margin: 0 auto;
     width:100%;
@@ -114,17 +557,6 @@ input, textarea{
 
 
 
- .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .active > a{
-    color:darkred;
-    font-weight: bold;
-    background-color:white;
-    border-radius: 0px;
-}
-
-body{
-    background-color: white;
-}
-
 .container-header{
     background-color: white;
 }
@@ -133,14 +565,6 @@ table{
 }
 
 
-footer{
-    text-align: center;
-    color:gray;
-}
-
-footer>hr{
-    border: 1px solid darkgray;
-}
 
 .glyphicon-star{
     color: gold;
@@ -191,10 +615,6 @@ hr{
     float:right;
 }
 
-.btn-danger{
-    background-color: darkred;
-}
-
 .profil{
     position: relative;
     margin-top: 15px;
@@ -202,19 +622,7 @@ hr{
     font-weight: bold;
 }
 
-#carousel-example-generic {
-
-    height: 400px;
-    background-color:black;
-
-}
-
 .item {
     position:relative;
     height:400px;
-}
-
-.img-responsive {
-
-    margin: 0 auto;
 }

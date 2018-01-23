@@ -80,3 +80,5 @@ c:\users\antonija\documents\visual studio 2015\Projects\ShowReel\ShowReel\bin\Mi
 c:\users\antonija\documents\visual studio 2015\Projects\ShowReel\ShowReel\obj\Debug\ShowReel.csprojResolveAssemblyReference.cache
 c:\users\antonija\documents\visual studio 2015\Projects\ShowReel\ShowReel\obj\Debug\ShowReel.dll
 c:\users\antonija\documents\visual studio 2015\Projects\ShowReel\ShowReel\obj\Debug\ShowReel.pdb
+C:\Users\Antonija\Visual-Studio-Projects\ShowReelDemo\obj\Debug\ShowReel.dll
+C:\Users\Antonija\Visual-Studio-Projects\ShowReelDemo\obj\Debug\ShowReel.pdb
