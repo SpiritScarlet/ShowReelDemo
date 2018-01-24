@@ -1,67 +1,80 @@
 ﻿@model IEnumerable<ShowReel.Models.Tvshow>
-
-
 @{
     ViewBag.Title = "TVshow";
 }
 
-<div class="row">
+<div class="filter line-under--gray">
     <form method="get" action="@Url.Action("TVshow", "TVShows")">
+        <div class="input-container">
+            <label class="search-label"><i class="fa fa-search"></i></label>
+            <input type="search" name="keyword" id="search" class="input-search" />
+            <button type="submit" value="Search" class="btn-submit"><i class="fa fa-chevron-right"></i></button>
+        </div>
+        <div class="filter-items-container">
+            <div class="dropdown">
+                <button type="button" class="btn btn-dropdown dropdown-toggle txt--uppercase w--medium" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre <i class="fa fa-angle-down"></i></button>
+                <ul class="dropdown-menu">
+                    <li name="action" id="action"><a href="#">Action</a></li>
+                    <li name="action" id="drama"><a href="#">Drama</a></li>
+                    <li name="action" id="fantasy"><a href="#">Fantasy</a></li>
+                    <li name="action" id="sci-fi"><a href="#">Sci-fi</a></li>
+                    <li name="action" id="mistery"><a href="#">Mistery</a></li>
+                </ul>
+            </div>
 
-            <!-- <input type="radio" name="type" value="genre" /> Genre --> 
-            <input type="radio" name="type" value="premiereYear"> Year of Premiere
-            <input type="radio" name="type" value="popularity"> Popularity
-            <input type="radio" name="type" value="all"> All
-                  <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-                       <ul class="dropdown-menu">
-                           <li name="action" id="action"><a href="#">Action</a></li>
-                           <li name="action" id="drama"><a href="#">Drama</a></li>
-                           <li name="action" id="fantasy"><a href="#">Fantasy</a></li>
-                           <li name="action" id="sci-fi"><a href="#">Sci-fi</a></li>
-                           <li name="action" id="mistery"><a href="#">Mistery</a></li>
-                       </ul>
-                   </div><!-- /btn-group -->
-            <input type="search" name="keyword" id="search" />
-            <button type="submit" value="Search"><span class="glyphicon glyphicon-search"></span></button>
+            <div class="radio-container">
+                <div class="radio-group">
+                    <input type="radio" name="type" id="radio-1" value="premiereYear">
+                    <label for="radio-1">Year of Premiere</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" name="type" id="radio-2" value="popularity">
+                    <label for="radio-2">Popularity</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" name="type" id="radio-3" value="all">
+                    <label for="radio-3">All</label>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
 
-        @foreach (var item in Model)
-        {
-
-            <div class="row flex line-under--gray normal">
-                <div class="col-md-4">
-                    <div class="listed-item__img" style="background:url(../Content/Images/@item.Image) no-repeat center; background-size: cover;"></div>
-                </div>
-                <div class="col-md-8">
+@foreach (var item in Model)
+{
+    <div class="row flex line-under--gray normal">
+        <div class="col-md-4">
+            <div class="listed-item__img" style="background:url(../Content/Images/@item.Image) no-repeat center; background-size: cover;"></div>
+        </div>
+        <div class="col-md-8 flex--column">
             
-                    <h2> @item.Name <span style="font-size:medium;">@item.Year</span></h2>
-                    @{ 
-                        var k = (int)Math.Round(@item.Rating);
-                        for (int i = 0; i < k; i++)
-                        {
-                            <span class="glyphicon glyphicon-star"></span>
-                        }
-                        for (int i = k; i < 10; i++)
-                        {
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                        }
-                     }
-
-                    <p>  @item.Description</p>
-
-                    <a href="#" class="btn btn--red btn-show @item.Id">Track</a>
-                
-                <script>
-                    $(".@item.Id").click(function () {
-                        $(this).text(function (i, text) {
-                            return text === "Track" ? "Untrack" : "Track";
-                        })
-                    });
-                </script>
-
-                </div>
-
+            <h2 class="show-title line-under left"> @item.Name <span style="font-size:medium;">@item.Year</span></h2>
+            <div class="rating">
+                @{
+                    var k = (int)Math.Round(@item.Rating);
+                    for (int i = 0; i < k; i++)
+                    {
+                        <i class="fa fa-star"></i>
+                    }
+                    for (int i = k; i < 10; i++)
+                    {
+                        <i class="fa fa-star-o"></i>
+                    }
+                }
             </div>
-        }
+            <p class="show-description">  @item.Description</p>
+
+            <a href="#" class="btn btn--red-inverse btn-track @item.Id">Track</a>
+                
+        <script>
+            $(".@item.Id").click(function () {
+                $(this).text(function (i, text) {
+                    return text === "Track" ? "Untrack" : "Track";
+                })
+            });
+        </script>
+
+        </div>
+
+    </div>
+}

@@ -1,63 +1,59 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
 
 <div class="row">
+
     <div class="col-md-5">
-        <div>
-                <div>
-                    <form method="post">
-                        <div class="form-group">
-                            <label asp-for="Name">Name</label>
-                            <input asp-for="Name" class="form-control" />
-                            <span asp-validation-for="Name"
-                                  class="text-muted"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Email">Email</label>
-                            <input asp-for="Email" class="form-control" />
-                            <span asp-validation-for="Email"
-                                  class="text-muted"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Subject">Subject</label>
-                            <input asp-for="Subject" class="form-control" />
-                            <span asp-validation-for="Subject"
-                                  class="text-muted"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Message">Message</label>
-                            <textarea rows="5" cols="15"
-                                      asp-for="Message" class="form-control"></textarea>
-                            <span asp-validation-for="Message"
-                                  class="text-muted"></span>
-                        </div>
-                        <div>
-                            <button type="submit"
-                                    class="btn btn-danger btn-lg" id="submit">
-                                Send
-                            </button>
-                        </div>
+        <h2 class="line-under left">@ViewBag.Title</h2>
 
-                    </form>
-                </div>
-            
+        <h3><strong>Address:</strong></h3>
+        <p> "Partizanski Odredi" 5/5<br />Skopje, 1000<br />Macedonia</p>
+        <h3><strong>Phone:</strong></h3>
+        <p> (+389) 70 / 123 - 456</p>
+        <div class="social-icons-container">
+            <a href="#" class="social-icons facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+            <a href="#" class="social-icons twitter"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+            <a href="#" class="social-icons skype"><i class="fa fa-skype" aria-hidden="true"></i></a>
+            <a href="#" class="social-icons instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
         </div>
-
-        
     </div>
-
-    <div class="col-md-5 col-md-offset-1">
-        <h4><b>Address:</b> Unknown 123</h4>
-        <h4><b>Phone:</b> 123456789</h4>
-
-        <a href="#"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-skype fa-3x" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-snapchat fa-3x" aria-hidden="true"></i></a>
-
-        
+    <div class="col-md-7">
+        <div>
+            <form method="post">
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <div class="input-container">
+                        <span class="input-background"><i class="fa fa-user"></i></span>
+                        <input asp-for="Name" class="form-control input-style" placeholder="Name"/>
+                    </div>
+                    <span asp-validation-for="Name" class="text-muted"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Email</label>
+                    <div class="input-container">
+                        <span class="input-background"><i class="fa fa-envelope"></i></span>
+                        <input asp-for="Email" class="form-control input-style" placeholder="Email"/>
+                    </div>
+                    <span asp-validation-for="Email" class="text-muted"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Subject">Subject</label>
+                    <div class="input-container">
+                        <span class="input-background"><i class="fa fa-ellipsis-h"></i></span>
+                        <input asp-for="Subject" class="form-control input-style" placeholder="Subject"/>
+                    </div>
+                    <span asp-validation-for="Subject" class="text-muted"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Message">Message</label>
+                    <textarea rows="5" cols="15" asp-for="Message" class="form-control" placeholder="Message"></textarea>
+                    <span asp-validation-for="Message" class="text-muted"></span>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn--red btn-track" id="submit"> Send</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

@@ -189,8 +189,8 @@ h2 {
 }
 
 h3 {
-    font-size: 37px;
-    line-height: 41px;
+    font-size: 25px;
+    line-height: 30px;
 }
 
 
@@ -306,6 +306,10 @@ input[type="submit"] {
     line-height: 25px;
 }
 
+.btn:focus, .btn:active, .btn:hover{
+    outline: none;
+}
+
 .btn--red, .btn--red:focus, .btn--red:visited {
     background-color: darkred;
     color: #fff;
@@ -317,16 +321,27 @@ input[type="submit"] {
     color: darkred;
 }
 
+.btn--red-inverse{
+    border: 2px solid darkred;
+    background-color: transparent;
+    color: darkred;
+}
+
+.btn--red-inverse:hover{
+    background-color: darkred;
+    color: #fff;
+}
+
 .btn-home {
     max-width: 200px;
     width: 100%;
     margin: 0 auto;
 }
 
-.btn-show{
-    max-width:350px;
+.btn-track{
+    padding: 10px;
+    max-width:250px;
     width:100%;
-    margin-left: auto;
 }
 
 /*navigation style*/
@@ -399,6 +414,7 @@ header{
 
 /*global style of body content*/
 .body-content {
+    min-height: calc(100vh - 65px);
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
@@ -426,6 +442,9 @@ footer p {
 .row.flex {
     display: flex;
     flex-flow: wrap row;
+}
+
+.align-items-center{
     align-items: center;
 }
 
@@ -459,6 +478,10 @@ footer p {
     margin: 10px auto 40px auto;
 }
 
+.line-under.left:after{
+    margin: 10px 0 40px 0;
+}
+
 .line-under--gray:after {
     content: "";
     display: block;
@@ -480,149 +503,393 @@ footer p {
     background-color: #000;
 }
 
+/*filter*/
+
+.filter {
+    margin: -40px -20px 0 -20px;
+}
+
+.input-container{
+    position: relative;
+}
+
+.input-search{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #d2d2d2;
+    padding: 30px 80px; 
+    font-size: 18px;
+    line-height: 23px;
+}
+
+.search-label{
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: 1px;
+    left: 20px;
+    border: none;
+    box-shadow: none;
+    background-color:#fff;
+}
+
+.search-label i{
+    font-size: 30px;
+    color: darkred;
+}
+
+.btn-submit {
+    position: absolute;
+    top: -1px;
+    bottom: 1px;
+    right: 0;
+    border: none;
+    box-shadow: none;
+    background-color: darkred;
+    padding: 0 30px;
+}
+
+.btn-submit i{
+    color: #fff;
+    font-size: 30px;
+}
+
+/*radio buttons style*/
+
+.radio-container{
+    padding: 20px;
+}
+
+.radio-group{
+    position: relative;
+    display: inline-block;
+    padding: 10px 30px 10px 0;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
+    position: relative;
+    display: inline-block;
+    padding-left: 35px;
+    cursor: pointer;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+    color: darkred;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    border: 2px solid darkred;
+    border-radius: 100%;
+    background: #fff;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: darkred;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+/*dropdown style*/
+
+.filter-items-container{
+    display: flex;
+
+}
+
+.dropdown {
+    display: inline-block;
+    padding: 20px 30px 20px 20px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 65px;
+    left: 20px; 
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 200px;
+    padding: 0;
+    font-size: 14px;
+    list-style: none;
+    background-color: #ffffff;
+    border: 2px solid darkred;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.dropdown-menu li{
+    margin-bottom:0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px 10px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #333333;
+    white-space: nowrap;
+    border-bottom: 1px solid darkred;
+    transition: all 0.3s ease-in-out;
+}
+
+.dropdown-menu li a:hover, .dropdown-menu li a:focus{
+    background-color: darkred;
+    color: #fff;
+}
+    
+.dropdown.open .btn-dropdown {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.btn-dropdown{
+    width: 200px;
+    /*width: 100%;*/
+    padding: 10px;
+    border: 2px solid darkred;
+    background-color: #fff;
+    color: darkred;
+}
+
+.btn-dropdown i{
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-dropdown:hover{
+    background-color: darkred;
+    color: #fff;
+}
+
+.btn-dropdown:hover i{
+    color: #fff;
+}
+
 /*listed shows from database*/
+
+.flex--column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 .listed-item__img {
     border-radius: 5px;
-    min-height: 270px;
+    /*min-height: 270px;*/
+    height: 100%;
     width: 100%;
     -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.25);
 }
 
-
-.fa {
-    color:darkred;
+.show-title{
+    display: inline-block;
+    margin-bottom: 0;
 }
 
-.table-striped {
-background-color:#f79494;
+.show-description{
+    width:80%;
 }
 
-table td{
-    height:40px;
-    vertical-align:middle;
+.rating{
+    position: absolute;
+    top: -15px;
+    right: 30px;
 }
 
-table tr{
-    padding:10%;
-}
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
-
-.news {
-    float:right;
-}
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
-
-.container-header{
-    padding:0px;
-}
-
-.button{
-    margin: 0 auto;
-    width:100%;
-}
-
-#submit{
-    position:relative;
-    float:right;
-}
-
-input, textarea{
-    max-width:500px;
-}
-
-.button > a{
-    color:white;
-    font-weight:bold;
-}
-
-.button > a:hover{
-    text-decoration:none;
-    color:white;
-}
-
-
-
-.container-header{
-    background-color: white;
-}
-table{
-    table-layout: fixed;
-}
-
-
-
-.glyphicon-star{
+.rating i{
+    font-size: 20px;
     color: gold;
-    font-size:larger;   
 }
 
-.header>th{
+
+/*contact page*/
+
+.social-icons-container{
+    width: 100%;
+}
+
+.social-icons{
+    padding: 10px;   
+    transition: all 0.3s ease-in-out;
+}
+
+.social-icons i {
+    font-size: 40px;
+}
+
+.social-icons.facebook{
+    color: blue;
+}
+
+.social-icons.facebook:hover{
+    color:darkblue;
+}
+
+.social-icons.twitter{
+    color: dodgerblue;
+}
+
+.social-icons.twitter:hover{
+    color: darkblue;
+}
+
+.social-icons.skype{
+    color: dodgerblue;
+}
+
+.social-icons.skype:hover{
+    color: darkblue;
+}
+.social-icons.instagram{
+    color: deeppink;
+}
+.social-icons.instagram:hover{
+    color:hotpink;
+}
+.form-group label{
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight:500;
+    margin-bottom: 10px;
+}
+
+.form-group input::-webkit-input-placeholder, .form-group textarea::-webkit-input-placeholder{
+    text-transform: uppercase;
+}
+
+.input-background{
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index:2;
+}
+
+.input-background i{
+    color: #d2d2d2;
+    font-size: 25px;
+}
+
+.input-style {
+    font-family: 'Roboto', sans-serif;
+    height: auto;
+    padding: 15px 20px 15px 60px;
+}
+
+textarea.form-control {
+    font-family: 'Roboto', sans-serif;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+
+/*tracker / calendar*/
+
+.watched-items{
+    display:inline-block;
+    max-width: 200px;
+    width: 100%;
+    padding: 0 20px;
+    margin-left: -20px;
+}
+
+.items-box{
+    border: 2px solid darkred;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.items-header{
+    width: 100%;
     background-color: darkred;
-    color:white;
-    font-weight: bold;
+    color: #fff;
+    padding:10px;
 }
 
-.trackbtn{
-    position: relative;
-    float: right;
-    margin: 5px;
-}
-
-hr{
-    position:relative;
-    border: 1px solid gray;
-    margin-bottom: 10px;
-}
-
-.sample{
-    position: relative;
-    margin-bottom:5px;
-}
-
-.numbers{
-    position: relative;
-    margin-left: 35%;
-}
-
-.searchbtn{
-    position: relative;
-    margin-bottom: 10px;
-    margin-left: -3%;
-}
-
-.contactForm{
-    position: relative;
-    margin-top: 25px;
-}
-
-.rate{
-    position: relative;
-    float:right;
-}
-
-.profil{
-    position: relative;
-    margin-top: 15px;
+.items-content{
     color: darkred;
-    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 0;
+    position: relative;
 }
 
-.item {
-    position:relative;
-    height:400px;
+.btn-check {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    padding: 3px 6px;
+    border-radius:3px;
+}
+
+/*calendar style*/
+
+.calendar {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: -41px -20px 0 -20px;
+    background-color: #fff;
+    border-bottom: 1px solid darkred;
+    margin-bottom: 30px;
+}
+
+.calendar-day {
+    flex: 1 1 0;
+    border-right: 1px solid darkred;
+}
+
+.calendar-header{
+    background-color: darkred;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.calendar-show{
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
 }
