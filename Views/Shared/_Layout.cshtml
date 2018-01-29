@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Scripts.Render("~/bundles/modernizr")
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
@@ -41,10 +41,22 @@
     </header>
     <section class="container--bg">
         <span class="overlay"></span>
+        <div class="particle-container hidden">
+            <div class="particle-style" id="particles">
+
+            </div>
+            <div class="particle-txt">
+                <h2 class="txt--white txt--center">
+                    Organize your time!
+                    <br /> <i class="fa fa-clock txt--white"></i>
+                </h2>
+            </div>
+            <span class="arrow-down"><i class="fa fa-angle-down txt--white"></i></span>
+        </div>
         <div class="body-content">
 
-                @RenderBody()
-           
+            @RenderBody()
+
         </div>
     </section>
 
@@ -55,5 +67,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="../../Scripts/jquery.particleground.min.js"></script>
+    <script src="../../Scripts/main-script.js"></script>
 </body>
 </html>

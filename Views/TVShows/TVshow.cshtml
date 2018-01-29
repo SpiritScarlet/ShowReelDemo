@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ShowReel.Models.Tvshow>
+﻿@*@model IEnumerable<ShowReel.Models.Tvshow>*@
 @{
     ViewBag.Title = "TVshow";
 }
@@ -8,10 +8,10 @@
         <div class="input-container">
             <label class="search-label"><i class="fa fa-search"></i></label>
             <input type="search" name="keyword" id="search" class="input-search" />
-            <button type="submit" value="Search" class="btn-submit"><i class="fa fa-chevron-right"></i></button>
+            <button type="submit" id="submit" value="Search" class="btn-submit"><i class="fa fa-chevron-right"></i></button>
         </div>
-        <div class="filter-items-container">
-            <div class="dropdown">
+@*        <div class="filter-items-container">*@
+            @*<div class="dropdown">
                 <button type="button" class="btn btn-dropdown dropdown-toggle txt--uppercase w--medium" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre <i class="fa fa-angle-down"></i></button>
                 <ul class="dropdown-menu">
                     <li name="action" id="action"><a href="#">Action</a></li>
@@ -20,9 +20,9 @@
                     <li name="action" id="sci-fi"><a href="#">Sci-fi</a></li>
                     <li name="action" id="mistery"><a href="#">Mistery</a></li>
                 </ul>
-            </div>
+            </div>*@
 
-            <div class="radio-container">
+            @*<div class="radio-container">
                 <div class="radio-group">
                     <input type="radio" name="type" id="radio-1" value="premiereYear">
                     <label for="radio-1">Year of Premiere</label>
@@ -35,46 +35,67 @@
                     <input type="radio" name="type" id="radio-3" value="all">
                     <label for="radio-3">All</label>
                 </div>
-            </div>
-        </div>
+            </div>*@
+        @*</div>*@
     </form>
 </div>
+<script>
 
-@foreach (var item in Model)
-{
-    <div class="row flex line-under--gray normal">
-        <div class="col-md-4">
-            <div class="listed-item__img" style="background:url(../Content/Images/@item.Image) no-repeat center; background-size: cover;"></div>
-        </div>
-        <div class="col-md-8 flex--column">
-            
-            <h2 class="show-title line-under left"> @item.Name <span style="font-size:medium;">@item.Year</span></h2>
-            <div class="rating">
-                @{
-                    var k = (int)Math.Round(@item.Rating);
-                    for (int i = 0; i < k; i++)
-                    {
-                        <i class="fa fa-star"></i>
-                    }
-                    for (int i = k; i < 10; i++)
-                    {
-                        <i class="fa fa-star-o"></i>
-                    }
-                }
-            </div>
-            <p class="show-description">  @item.Description</p>
+    var keyword = "";
+    var $url = "";
 
-            <a href="#" class="btn btn--red-inverse btn-track @item.Id">Track</a>
-                
-        <script>
-            $(".@item.Id").click(function () {
-                $(this).text(function (i, text) {
-                    return text === "Track" ? "Untrack" : "Track";
-                })
-            });
-        </script>
+    $('#submit').on('click', function (e) {
+        //e.preventDefault();
+        keyword = $('#search').val();
+        window.sessionStorage['keyword'] = keyword;
+    });
+    if (!window.sessionStorage['keyword']) {
+        $url = " http://api.tvmaze.com/shows?page=1";
+    } else {
+        keyword = window.sessionStorage['keyword'].toString();
+        keyword = keyword.toLowerCase().replace(/\s/g, "");
+        $url = "http://api.tvmaze.com/search/shows?q=" + keyword;
+        //alert($url);
+    }
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var $obj = JSON.parse(this.responseText);
+            for (var i = 0; i <= $obj.length - 1; i++) {
+                //var rating = $obj[i].rating.average;
+                var $item = '<div class="row flex line-under--gray normal" > \
+                              <div class="col-md-4"> \
+                                  <div class="listed-item__img" style="background:url(' + $obj[i].image.original + ' ) no-repeat center; background-size: cover;"></div> \
+                              </div>\
+                              <div class="col-md-8 flex--column">\
+                                  <h2 class="show-title line-under left">' + $obj[i].name + '<span style="font-size:medium;"></span></h2> \
+                                  <div class="rating"> ' + $obj[i].rating.average + ' </div>\
+                                  <p class="show-description">' + $obj[i].summary + '</p>\
+                                  <a href="#" class="btn btn--red-inverse btn-track js-track" id="' + $obj[i].id + '">Track</a>\
+                              </div>\
+                            </div>';
+                $('.show-items-container').append($item);
+            }
+        }
+    };
+    //alert($url);
+    xmlhttp.open("GET", $url, true);
+    xmlhttp.send();
+</script>
 
-        </div>
 
-    </div>
-}
+@*@{
+        var k = (int)Math.Round(@item.Rating);
+        for (int i = 0; i < k; i++)
+        {
+            <i class="fa fa-star"></i>
+        }
+        for (int i = k; i < 10; i++)
+        {
+            <i class="fa fa-star-o"></i>
+        }
+    }*@
+
+
+<div class="show-items-container"></div>
