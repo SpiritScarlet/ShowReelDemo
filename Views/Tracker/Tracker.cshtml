@@ -1,72 +1,141 @@
-﻿@model IEnumerable<ShowReel.Models.Tvshow>
+﻿@model IEnumerable<ShowReel.Models.UserShowView>
 
 @{
     ViewBag.Title = "Tracker";
-    ViewBag.Episode = 1;
 }
 
 <div class="calendar">
     <div class="calendar-day" id="monday">
         <div class="calendar-header">Monday</div>
         <div class="calendar-content">
-            <div class="calendar-show">
-                Westworld
-            </div>
-            <div class="calendar-show">
-                Game Of Thrones
-            </div>
-            <div class="calendar-show">
-                Sherlock
-            </div>
+            @foreach (var item in Model)
+            {
+                if (@item.Date == "Monday")
+                {
+                    <div class="calendar-show">
+                        @item.Name <br />
+                        <p class="txt--small">
+                            S:@item.Seasons  E:@item.Episodes
+                        </p>
+                    </div>
+                    continue;
+                }
+            }
+           
         </div>
     </div>
 
     <div class="calendar-day" id="tuesday">
         <div class="calendar-header">Tuesday</div>
         <div class="calendar-content">
-            <div class="calendar-show">
-                Supergirl
-            </div>
+            @foreach (var item in Model)
+            {
+                if (@item.Date == "Tuesday")
+                {
+                    <div class="calendar-show">
+                        @item.Name <br />
+                        <p class="txt--small">
+                            S:@item.Seasons  E:@item.Episodes
+                        </p>
+                    </div>
+                    continue;
+                }
+             }
         </div>
     </div>
 
     <div class="calendar-day" id="wednesday">
         <div class="calendar-header">Wednesday</div>
-        <div class="calendar-content"></div>
+        <div class="calendar-content">
+            @foreach (var item in Model)
+    {
+        if (@item.Date == "Wednesday")
+        {
+            <div class="calendar-show">
+                @item.Name <br />
+                <p class="txt--small">
+                    S:@item.Seasons  E:@item.Episodes
+                </p>
+            </div>
+    continue;
+}
+}
+        </div>
     </div>
 
     <div class="calendar-day" id="thursday">
         <div class="calendar-header">Thursday</div>
         <div class="calendar-content">
+            @foreach (var item in Model)
+    {
+        if (@item.Date == "Thursday")
+        {
             <div class="calendar-show">
-                Vikings
+                @item.Name <br />
+                <p class="txt--small">
+                    S:@item.Seasons  E:@item.Episodes
+                </p>
             </div>
-            <div class="calendar-show">
-                Glee
-            </div>
+    continue;
+}
+}
         </div>
     </div>
 
     <div class="calendar-day" id="friday">
         <div class="calendar-header">Friday</div>
         <div class="calendar-content">
+            @foreach (var item in Model)
+    {
+        if (@item.Date == "Friday")
+        {
             <div class="calendar-show">
-                Stranger Things
+                @item.Name <br />
+                <p class="txt--small">
+                    S:@item.Seasons  E:@item.Episodes
+                </p>
             </div>
+    continue;
+}
+}
         </div>
     </div>
 
     <div class="calendar-day" id="saturday">
         <div class="calendar-header">Saturday</div>
-        <div class="calendar-content"></div>
+        <div class="calendar-content">
+            @foreach (var item in Model)
+    {
+        if (@item.Date == "Saturday")
+        {
+            <div class="calendar-show">
+                @item.Name <br />
+                <p class="txt--small">
+                    S:@item.Seasons  E:@item.Episodes
+                </p>
+            </div>
+    continue;
+}
+}
+        </div>
     </div>
 
     <div class="calendar-day" id="sunday">
         <div class="calendar-header">Sunday</div>
         <div class="calendar-content">
+            @foreach (var item in Model)
+    {
+        if (@item.Date == "Sunday")
+        {
             <div class="calendar-show">
-                The Walking Dead
+                @item.Name <br />
+                <p class="txt--small">
+                    S:@item.Seasons  E:@item.Episodes
+                </p>
             </div>
+    continue;
+}
+}
         </div>
     </div>
 
@@ -76,7 +145,7 @@
 @foreach (var item in Model)
 {
     <div class="row flex line-under--gray normal">
-        <div class="col-md-4">
+        <div class="col-md-4 image-container">
             <div class="listed-item__img" style="background:url(../Content/Images/@item.Image) no-repeat center; background-size: cover;"></div>
         </div>
         <div class="col-md-8">
@@ -85,7 +154,7 @@
             <div class="watched-items">
                 <div class="items-box">
                     <h3 class="txt--center items-header">Season</h3>
-                    <p class="txt--center items-content"><span class="season-watched">1</span></p>
+                    <p class="txt--center items-content"><span class="season-watched">@item.Seasons</span></p>
                 </div>
             </div>
             <div class="watched-items">

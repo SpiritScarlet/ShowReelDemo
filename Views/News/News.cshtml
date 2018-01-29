@@ -13,11 +13,11 @@
         </div>
         <div class="radio-container">
             <div class="radio-group">
-                <input type="radio" name="type" id="radio-1" value="newest">
+                <input type="radio" name="news" id="radio-1" value="newest">
                 <label for="radio-1">Newest First</label>
             </div>
             <div class="radio-group">
-                <input type="radio" name="type" id="radio-2" value="keyword">
+                <input type="radio" name="news" id="radio-2" value="keyword">
                 <label for="radio-2">Keyword Search</label>
             </div>
         </div>
@@ -26,7 +26,7 @@
 
 @foreach (var item in Model) {
     <div class="row flex line-under--gray normal">
-        <div class="col-md-4">
+        <div class="col-md-4 image-container">
             <div class="listed-item__img" style="background:url(../Content/Images/@item.Image) no-repeat center; background-size: cover;"></div>
         </div>
         <div class="col-md-8 flex--column">

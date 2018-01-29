@@ -14,10 +14,22 @@ namespace ShowReel.Controllers
         // GET: Tracker
         public ActionResult Tracker()
         {
-          
+
             var model =
-                _db.Tvshows
-                .OrderBy(r => r.Name);
+                from r in _db.Episode
+                join k in _db.Tvshows on r.Id equals k.EpisodeGuideID
+
+                select new UserShowView
+                {
+                    Id = r.Id,
+                    Name = r.Name,
+                    Date = r.Date,
+                    Seasons = r.Seasons,
+                    Episodes = r.Episodes,
+                    Description = k.Description,
+                    Image = k.Image
+
+                };
              
             return View(model);
         }

@@ -9,8 +9,8 @@ namespace ShowReel.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Date { get; set; }
         public int Seasons { get; set; }
         public Array EpisodesPerSeason { get; set; }
-        public DateTime Date { get; set; }
     }
 }

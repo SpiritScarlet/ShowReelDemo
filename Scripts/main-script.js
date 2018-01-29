@@ -4,6 +4,11 @@
         $('.particle-container').removeClass('hidden');
     }
 
+    $('.menu-trigger').on('click', function () {
+        $(this).toggleClass('open');
+        $('.menu__list').toggleClass('opened');
+    });
+
     //for the navigation
     $(document).on('scroll', function () {
         var y = $(window).scrollTop();
@@ -51,5 +56,9 @@
         xmlhttp.send();
       
     });
+
+    if ($(document).find('.home').length > 0) {
+        $('.body-content').css('padding-top', '40px');
+    }
 
 });
