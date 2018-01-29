@@ -4,6 +4,24 @@
         $('.particle-container').removeClass('hidden');
     }
 
+    //for the navigation
+    $(document).on('scroll', function () {
+        var y = $(window).scrollTop();
+        if (y > 50) {
+            $('header').addClass('scroll');
+        } else {
+            $('header').removeClass('scroll');
+        }
+    });
+
+    $(document).on('click', '.arrow-down', function (event) {
+        event.preventDefault();
+
+        $('html, body').animate({
+            scrollTop: $('#home').offset().top - 150
+        }, 500);
+    });
+
     $('#particles').particleground({
         dotColor: 'rgba(255,255,255, 0.5)',
         lineColor: 'rgba(255,255,255, 0.5)',
