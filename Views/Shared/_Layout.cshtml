@@ -23,7 +23,6 @@
                     <li class="menu__list__item @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">@Html.ActionLink("Home", "Index", "Home")</li>
                     <li class="menu__list__item @(ViewContext.RouteData.Values["Action"].ToString() == "TVshow" ? "active" : "")">@Html.ActionLink("TV Shows", "TVshow", "TVShows")</li>
                     <li class="menu__list__item @(ViewContext.RouteData.Values["Action"].ToString() == "News" ? "active" : "")" ">@Html.ActionLink("News", "News", "News")</li>
-                    <li class="menu__list__item @(ViewContext.RouteData.Values["Action"].ToString() == "Tracker" ? "active" : "")">@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
                     <li class="menu__list__item @(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">@Html.ActionLink("About", "About", "Home")</li>
                     <li class="menu__list__item @(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">@Html.ActionLink("Contact", "Contact", "Home")</li>
 

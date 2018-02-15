@@ -614,8 +614,15 @@ footer p {
     background-color: #000;
 }
 
-/*filter*/
+.carousel-inner {
+    max-height: 350px;
+}
 
+.carousel-inner > .item > img, .carousel-inner > .item > a > img{
+    max-width: none;
+    width: 100%;
+}
+/*filter*/
 .filter {
     margin: -40px -20px 0 -20px;
 }
@@ -1010,9 +1017,6 @@ textarea.form-control {
 /*login/register forms*/
 
 .login-box {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     max-width: 500px;
     width: 100%;
     margin: 0 auto;

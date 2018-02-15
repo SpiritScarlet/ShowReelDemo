@@ -58,7 +58,7 @@
     });
 
     if ($(document).find('.home').length > 0) {
-        $('.body-content').css('padding-top', '40px');
+        $('.body-content').css('padding-top', '80px');
     }
 
 });
